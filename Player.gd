@@ -7,19 +7,19 @@ onready var right: = $RayRight
 onready var left: = $RayLeft
 
 func _physics_process(delta):
-	if Input.is_action_pressed("forward") and collision_check(forward):
+	if Input.is_action_pressed("ui_up") and collision_check(forward):
 		set_physics_process(false)
 		yield(tween_translation(get_direction(forward)), "completed")
 		set_physics_process(true)
-	elif Input.is_action_pressed("back") and collision_check(back):
+	elif Input.is_action_pressed("ui_down") and collision_check(back):
 		set_physics_process(false)
 		yield(tween_translation(get_direction(back)), "completed")
 		set_physics_process(true)
-	elif Input.is_action_pressed("strafe_left") and collision_check(left):
+	elif Input.is_action_pressed("ui_left") and collision_check(left):
 		set_physics_process(false)
 		yield(tween_translation(get_direction(left)), "completed")
 		set_physics_process(true)
-	elif Input.is_action_pressed("strafe_right") and collision_check(right):
+	elif Input.is_action_pressed("ui_right") and collision_check(right):
 		set_physics_process(false)
 		yield(tween_translation(get_direction(right)), "completed")
 		set_physics_process(true)
